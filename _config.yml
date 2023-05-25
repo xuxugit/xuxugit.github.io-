@@ -98,10 +98,10 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 #theme: landscape
-#theme: next
+theme: next
 #theme: smackdown
 #theme: 3-hexo
-theme: yilia
+#theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
