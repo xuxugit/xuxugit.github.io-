@@ -4,16 +4,16 @@
 
 # Site
 title: 小旭子的博客
-subtitle: ''
+subtitle: '小子，你来了！！'
 description: ''
 keywords:
-author: Xu
+author: Xu Xu
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://xuxugit.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
