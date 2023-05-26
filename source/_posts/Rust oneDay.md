@@ -12,7 +12,7 @@ title: 初识 Rust
 
 优势：在“系统层面”的工作，设计内存管理、并发等底层的细节。在给程序员造成了很大困扰，Rust消除了这些陷阱，更妙的是，它的语言设计的本身自然而言的引导你编写出可靠的代码，并且运行速度和内存使用很高效。
 
-# 二、入坑指南
+# 二、入坑指南<!--more-->
 
 ## 1、安装
 
@@ -68,10 +68,10 @@ cd hello_world
 对于 Windows CMD，输入：
 
 ```doscon
-> mkdir "%USERPROFILE%\projects"
-> cd /d "%USERPROFILE%\projects"
-> mkdir hello_world
-> cd hello_world
+mkdir "%USERPROFILE%\projects"
+cd /d "%USERPROFILE%\projects"
+mkdir hello_world
+cd hello_world
 ```
 
 编写程序：
@@ -158,6 +158,7 @@ cd hello_cargo
 这也会在 *hello_cargo* 目录初始化了一个 git 仓库，以及一个 *.gitignore* 文件。如果在一个已经存在的 git 仓库中运行 `cargo new`，则这些 git 相关文件则不会生成；可以通过运行 `cargo new --vcs=git` 来覆盖这些行为。
 
 > 注意：Git 是一个常用的版本控制系统（version control system，VCS）。可以通过 `--vcs` 参数使 `cargo new` 切换到其它版本控制系统（VCS），或者不使用 VCS。运行 `cargo new --help` 参看可用的选项。
+>
 
 请自行选用文本编辑器打开 *Cargo.toml* 文件。它应该看起来如示例 1-2 所示：
 
