@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>初识 Rust | 小旭子的博客lllll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、简介1、Rust 文档链接官网地址：https:&#x2F;&#x2F;www.rust-lang.org 中文文档：https:&#x2F;&#x2F;kaisery.github.io&#x2F;trpl-zh-cn&#x2F; 优势：在“系统层面”的工作，设计内存管理、并发等底层的细节。在给程序员造成了很大困扰，Rust消除了这些陷阱，更妙的是，它的语言设计的本身自然而言的引导你编写出可靠的代码，并且运行速度和内存使用很高效。 二、入坑指南">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识 Rust">
+<meta property="og:url" content="https://xuxugit.github.io/2023/05/27/Rust%20oneDay/index.html">
+<meta property="og:site_name" content="小旭子的博客lllll">
+<meta property="og:description" content="一、简介1、Rust 文档链接官网地址：https:&#x2F;&#x2F;www.rust-lang.org 中文文档：https:&#x2F;&#x2F;kaisery.github.io&#x2F;trpl-zh-cn&#x2F; 优势：在“系统层面”的工作，设计内存管理、并发等底层的细节。在给程序员造成了很大困扰，Rust消除了这些陷阱，更妙的是，它的语言设计的本身自然而言的引导你编写出可靠的代码，并且运行速度和内存使用很高效。 二、入坑指南">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-27T15:36:16.261Z">
+<meta property="article:modified_time" content="2023-05-27T15:36:16.261Z">
+<meta property="article:author" content="Xu Xu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="小旭子的博客lllll" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小旭子的博客lllll</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">小子，你来了！！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xuxugit.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Rust oneDay" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/27/Rust%20oneDay/" class="article-date">
+  <time class="dt-published" datetime="2023-05-27T15:36:16.261Z" itemprop="datePublished">2023-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      初识 Rust
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><h2 id="1、Rust-文档链接"><a href="#1、Rust-文档链接" class="headerlink" title="1、Rust 文档链接"></a>1、Rust 文档链接</h2><p>官网地址：<a target="_blank" rel="noopener" href="https://www.rust-lang.org/">https://www.rust-lang.org</a></p>
+<p>中文文档：<a target="_blank" rel="noopener" href="https://kaisery.github.io/trpl-zh-cn/">https://kaisery.github.io/trpl-zh-cn/</a></p>
+<p>优势：在“系统层面”的工作，设计内存管理、并发等底层的细节。在给程序员造成了很大困扰，Rust消除了这些陷阱，更妙的是，它的语言设计的本身自然而言的引导你编写出可靠的代码，并且运行速度和内存使用很高效。</p>
+<h1 id="二、入坑指南"><a href="#二、入坑指南" class="headerlink" title="二、入坑指南"></a>二、入坑指南</h1><span id="more"></span>
+<h2 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h2><p>通过 <code>rustup</code> 下载 Rust，这是一个管理 Rust 版本和相关工具的命令行工具。下载时需要联网。</p>
+<blockquote>
+<p>注意：如果你出于某些理由倾向于不使用 <code>rustup</code>，请到 <a target="_blank" rel="noopener" href="https://forge.rust-lang.org/infra/other-installation-methods.html">Rust 的其他安装方法页面</a> 查看其它安装选项。</p>
+</blockquote>
+<h3 id="1-1、在-Linux-和-macOS-安装-rustup"><a href="#1-1、在-Linux-和-macOS-安装-rustup" class="headerlink" title="1.1、在 Linux 和 macOS 安装 rustup"></a>1.1、在 Linux 和 macOS 安装 rustup</h3><p>打开终端，输入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --proto &#x27;=https&#x27; --tlsv1.2 https://sh.rustup.rs -sSf | sh</span><br></pre></td></tr></table></figure>
+
+<p>此命令下载一个脚本并开始安装 <code>rustup</code> 工具，这会安装最新稳定版 Rust。过程中可能会提示你输入密码。如果安装成功，将会出现如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rust is installed now. Great!</span><br></pre></td></tr></table></figure>
+
+<p>在 macOS 上，你可以通过运行以下命令获得 C 语言编译器(很可能你已经安装了)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+
+<p>出现下边警告是已经安装了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select: error: command line tools are already installed, use &quot;Software Update&quot; in System Settings to install updates</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2、Windows-安装"><a href="#1-2、Windows-安装" class="headerlink" title="1.2、Windows 安装"></a>1.2、Windows 安装</h3><p>安装包下载地址：<a target="_blank" rel="noopener" href="https://www.rust-lang.org/zh-CN/tools/install">安装 Rust - Rust 程序设计语言 (rust-lang.org)</a> 傻瓜式安装</p>
+<h2 id="2、编写-Helle-world"><a href="#2、编写-Helle-world" class="headerlink" title="2、编写 Helle world"></a>2、编写 Helle world</h2><p>打开终端并输入如下命令创建 <em>projects</em> 目录</p>
+<p>对于 Linux、macOS 和 Windows PowerShell，输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/projects</span><br><span class="line">cd ~/projects</span><br><span class="line">mkdir hello_world</span><br><span class="line">cd hello_world</span><br></pre></td></tr></table></figure>
+
+<p>对于 Windows CMD，输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir &quot;%USERPROFILE%\projects&quot;</span><br><span class="line">cd /d &quot;%USERPROFILE%\projects&quot;</span><br><span class="line">mkdir hello_world</span><br><span class="line">cd hello_world</span><br></pre></td></tr></table></figure>
+
+<p>编写程序：</p>
+<p>创建一个文件（Linux 和 maxOS）：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim main.rs</span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译运行：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rustc main.rs</span><br><span class="line">./main</span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure>
+
+<p>Windows 创建一个 .rs 后缀的文件，添加代码：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行如果：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rustc main.rs</span><br><span class="line">.\main.exe</span><br><span class="line">Hello world!!</span><br></pre></td></tr></table></figure>
+
+<p>对于 Windows 的坑，如果编译存在报错下边处理后重新执行：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">error: linker `link.exe` not found</span><br><span class="line">  |</span><br><span class="line">  = note: program not found</span><br><span class="line"></span><br><span class="line">note: the msvc targets depend on the msvc linker but `link.exe` was not found</span><br><span class="line"></span><br><span class="line">note: please ensure that Visual Studio <span class="number">2017</span> or later, or Build Tools for Visual Studio were installed with the Visual C++ option.</span><br><span class="line"></span><br><span class="line">note: VS Code is a different product, and is not sufficient.</span><br><span class="line"></span><br><span class="line">error: aborting due to previous error</span><br></pre></td></tr></table></figure>
+
+<p>错误信息很明显：依赖于微软的 <code>msvc linker.exe</code>。</p>
+<p>一般让去下载VS，不过可以直接用rust命令解决。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rustup toolchain install stable-x86_64-pc-windows-gnu</span><br><span class="line">rustup default stable-x86_64-pc-windows-gnu</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Cargo-编程管理"><a href="#3、Cargo-编程管理" class="headerlink" title="3、Cargo 编程管理"></a>3、Cargo 编程管理</h3><p>Cargo 是 Rust 的构建系统和包管理器。大多数 Rustacean 们使用 Cargo 来管理他们的 Rust 项目，因为它可以为你处理很多任务，比如构建代码、下载依赖库并编译这些库。（我们把代码所需要的库叫做 <strong>依赖</strong>（<em>dependencies</em>））。</p>
+<p>终端检查是否安装 Cargo ：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo --version</span><br></pre></td></tr></table></figure>
+
+<p>使用 Cargo 创建项目</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cargo new hello_cargo</span><br><span class="line">cd hello_cargo</span><br></pre></td></tr></table></figure>
+
+<p>第一行命令新建了名为 <em>hello_cargo</em> 的目录和项目。我们将项目命名为 <em>hello_cargo</em>，同时 Cargo 在一个同名目录中创建项目文件。</p>
+<p>进入 <em>hello_cargo</em> 目录并列出文件。将会看到 Cargo 生成了两个文件和一个目录：一个 <em>Cargo.toml</em> 文件，一个 <em>src</em> 目录，以及位于 <em>src</em> 目录中的 <em>main.rs</em> 文件。</p>
+<p>这也会在 <em>hello_cargo</em> 目录初始化了一个 git 仓库，以及一个 <em>.gitignore</em> 文件。如果在一个已经存在的 git 仓库中运行 <code>cargo new</code>，则这些 git 相关文件则不会生成；可以通过运行 <code>cargo new --vcs=git</code> 来覆盖这些行为。</p>
+<blockquote>
+<p>注意：Git 是一个常用的版本控制系统（version control system，VCS）。可以通过 <code>--vcs</code> 参数使 <code>cargo new</code> 切换到其它版本控制系统（VCS），或者不使用 VCS。运行 <code>cargo new --help</code> 参看可用的选项。</p>
+</blockquote>
+<p>请自行选用文本编辑器打开 <em>Cargo.toml</em> 文件。它应该看起来如示例 1-2 所示：</p>
+<p>文件名：Cargo.toml</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[package]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;hello_cargo&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">edition</span> = <span class="string">&quot;2021&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span></span><br><span class="line"></span><br><span class="line"><span class="section">[dependencies]</span></span><br></pre></td></tr></table></figure>
+
+<p>示例 1-2: <em>cargo new</em> 命令生成的 <em>Cargo.toml</em> 的内容</p>
+<p>这个文件使用 <a target="_blank" rel="noopener" href="https://toml.io/"><em>TOML</em></a> (<em>Tom’s Obvious, Minimal Language</em>) 格式，这是 Cargo 配置文件的格式。</p>
+<p>第一行，<code>[package]</code>，是一个片段（section）标题，表明下面的语句用来配置一个包。随着我们在这个文件增加更多的信息，还将增加其他片段（section）。</p>
+<p>接下来的三行设置了 Cargo 编译程序所需的配置：项目的名称、项目的版本以及要使用的 Rust 版本。<a target="_blank" rel="noopener" href="https://kaisery.github.io/trpl-zh-cn/appendix-05-editions.html">附录 E</a> 会介绍 <code>edition</code> 的值。</p>
+<p>最后一行，<code>[dependencies]</code>，是罗列项目依赖的片段的开始。在 Rust 中，代码包被称为 <em>crates</em>。这个项目并不需要其他的 crate，不过在第二章的第一个项目会用到依赖，那时会用得上这个片段。</p>
+<ul>
+<li>可以使用 <code>cargo new</code> 创建项目。</li>
+<li>可以使用 <code>cargo build</code> 构建项目。</li>
+<li>可以使用 <code>cargo run</code> 一步构建并运行项目。</li>
+<li>可以使用 <code>cargo check</code> 在不生成二进制文件的情况下构建项目来检查错误。</li>
+<li>有别于将构建结果放在与源码相同的目录，Cargo 会将其放到 <em>target&#x2F;debug</em> 目录。</li>
+</ul>
+<p>通常 <code>cargo check</code> 要比 <code>cargo build</code> 快得多，因为它省略了生成可执行文件的步骤。如果你在编写代码时持续的进行检查，<code>cargo check</code> 可以让你快速了解现在的代码能不能正常通过编译！为此很多 Rustaceans 编写代码时定期运行 <code>cargo check</code> 确保它们可以编译。当准备好使用可执行文件时才运行 <code>cargo build</code>。</p>
+<p>使用 Cargo 的一个额外的优点是，不管你使用什么操作系统，其命令都是一样的。所以从现在开始本书将不再为 Linux 和 macOS 以及 Windows 提供相应的命令。</p>
+<p>发布 （release）构建</p>
+<p>当项目最终准备好发布时，可以使用 <code>cargo build --release</code> 来优化编译项目。这会在 <em>target&#x2F;release</em> 而不是 <em>target&#x2F;debug</em> 下生成可执行文件。这些优化可以让 Rust 代码运行的更快，不过启用这些优化也需要消耗更长的编译时间。这也就是为什么会有两种不同的配置：一种是为了开发，你需要经常快速重新构建；另一种是为用户构建最终程序，它们不会经常重新构建，并且希望程序运行得越快越好。如果你在测试代码的运行时间，请确保运行 <code>cargo build --release</code> 并使用 <em>target&#x2F;release</em> 下的可执行文件进行测试。</p>
+<p>对于简单项目，Cargo 并不比 <code>rustc</code> 提供了更多的优势，不过随着开发的深入，终将证明其价值。一旦程序壮大到由多个文件组成，亦或者是需要其他的依赖，让 Cargo 协调构建过程就会简单得多。</p>
+<p>即便 <code>hello_cargo</code> 项目十分简单，它现在也使用了很多在你之后的 Rust 生涯将会用到的实用工具。其实，要在任何已存在的项目上工作时，可以使用如下命令通过 Git 检出代码，移动到该项目目录并构建：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone example.org/someproject</span><br><span class="line">cd someproject</span><br><span class="line">cargo build</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xuxugit.github.io/2023/05/27/Rust%20oneDay/" data-id="cli65mp490000bgosc76a53my" data-title="初识 Rust" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/05/27/github-ssh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/27/Rust%20oneDay/">初识 Rust</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/27/github-ssh/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/27/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/27/test/">test</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Xu Xu<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
