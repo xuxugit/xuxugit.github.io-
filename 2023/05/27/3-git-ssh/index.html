@@ -9,20 +9,20 @@
   <meta name="description" content="1、查看项目的提交方式1git remote -v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Girhub 总是输入密码解决方法">
-<meta property="og:url" content="https://xuxugit.github.io/2023/05/27/3_git_ssh/index.html">
+<meta property="og:url" content="https://xuxugit.github.io/2023/05/27/3-git-ssh/index.html">
 <meta property="og:site_name" content="小旭子的博客">
 <meta property="og:description" content="1、查看项目的提交方式1git remote -v">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xuxugit.github.io/img/3_git_ssh/git-ssh1.png">
-<meta property="og:image" content="https://xuxugit.github.io/img/3_git_ssh/git-ssh5.png">
-<meta property="og:image" content="https://xuxugit.github.io/img/3_git_ssh/git-ssh2.png">
-<meta property="og:image" content="https://xuxugit.github.io/img/3_git_ssh/git-ssh3.png">
-<meta property="og:image" content="https://xuxugit.github.io/img/3_git_ssh/git-ssh4.png">
+<meta property="og:image" content="https://xuxugit.github.io/img/3-git-ssh/git-ssh1.png">
+<meta property="og:image" content="https://xuxugit.github.io/img/3-git-ssh/git-ssh5.png">
+<meta property="og:image" content="https://xuxugit.github.io/img/3-git-ssh/git-ssh2.png">
+<meta property="og:image" content="https://xuxugit.github.io/img/3-git-ssh/git-ssh3.png">
+<meta property="og:image" content="https://xuxugit.github.io/img/3-git-ssh/git-ssh4.png">
 <meta property="article:published_time" content="2023-05-27T10:00:12.000Z">
-<meta property="article:modified_time" content="2023-05-28T15:46:51.742Z">
+<meta property="article:modified_time" content="2023-05-28T15:49:12.298Z">
 <meta property="article:author" content="Xu Xu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xuxugit.github.io/img/3_git_ssh/git-ssh1.png">
+<meta name="twitter:image" content="https://xuxugit.github.io/img/3-git-ssh/git-ssh1.png">
   
     <link rel="alternate" href="/atom.xml" title="小旭子的博客" type="application/atom+xml">
   
@@ -85,9 +85,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-3_git_ssh" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-3-git-ssh" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/05/27/3_git_ssh/" class="article-date">
+    <a href="/2023/05/27/3-git-ssh/" class="article-date">
   <time class="dt-published" datetime="2023-05-27T10:00:12.000Z" itemprop="datePublished">2023-05-27</time>
 </a>
     
@@ -109,14 +109,14 @@
       
         <h2 id="1、查看项目的提交方式"><a href="#1、查看项目的提交方式" class="headerlink" title="1、查看项目的提交方式"></a>1、查看项目的提交方式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/3_git_ssh/git-ssh1.png"></p>
+<p><img src="/img/3-git-ssh/git-ssh1.png"></p>
 <span id="more"></span>
 
 <h2 id="2、修改提交方式为-ssh"><a href="#2、修改提交方式为-ssh" class="headerlink" title="2、修改提交方式为 ssh"></a>2、修改提交方式为 ssh</h2><p>先移除旧的提交方式：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure>
 
 <p>添加新的提交方式，复制 ssh 地址添加：</p>
-<p><img src="/img/3_git_ssh/git-ssh5.png"></p>
+<p><img src="/img/3-git-ssh/git-ssh5.png"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@xxx.git</span><br></pre></td></tr></table></figure>
 
 <p>此时还没有权限提交，需要将自己的公钥添加到 github 上。</p>
@@ -127,17 +127,17 @@
 <p>会在自己的家目录生成公钥，之后进入 .ssh 目录：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\User\(自己用户)\.ssh   # Windows</span><br><span class="line">/home/(自己用户)/.ssh  # Linux</span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/3_git_ssh/git-ssh2.png"></p>
+<p><img src="/img/3-git-ssh/git-ssh2.png"></p>
 <p>第二步，添加公钥，打开自己的 Github 网页，打开设置，点击 SSH and GPS keys 选项：</p>
-<p><img src="/img/3_git_ssh/git-ssh3.png"></p>
+<p><img src="/img/3-git-ssh/git-ssh3.png"></p>
 <p>点击 New SSH key ，填写 Title 并拷贝 id_rsa.pub 里边的内容到 Key 中。 </p>
-<p><img src="/img/3_git_ssh/git-ssh4.png"></p>
+<p><img src="/img/3-git-ssh/git-ssh4.png"></p>
 <p>这样就配置成功了，之后在尝试提交验证一下。ok</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xuxugit.github.io/2023/05/27/3_git_ssh/" data-id="cli7lg5sk0002c3ov5nt6c1mu" data-title="Girhub 总是输入密码解决方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://xuxugit.github.io/2023/05/27/3-git-ssh/" data-id="cli7lj5q80002bin917rydbr2" data-title="Girhub 总是输入密码解决方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -148,7 +148,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2023/05/26/2_Rust_oneDay/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/05/26/2-Rust-oneDay/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
       <div class="article-nav-title">初识 Rust</div>
     </a>
@@ -188,15 +188,15 @@
       <ul>
         
           <li>
-            <a href="/2023/05/27/3_git_ssh/">Girhub 总是输入密码解决方法</a>
+            <a href="/2023/05/27/3-git-ssh/">Girhub 总是输入密码解决方法</a>
           </li>
         
           <li>
-            <a href="/2023/05/26/2_Rust_oneDay/">初识 Rust</a>
+            <a href="/2023/05/26/2-Rust-oneDay/">初识 Rust</a>
           </li>
         
           <li>
-            <a href="/2023/05/25/1_hello_world/">Hello World</a>
+            <a href="/2023/05/25/1-hello-world/">Hello World</a>
           </li>
         
       </ul>
