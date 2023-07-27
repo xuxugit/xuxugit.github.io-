@@ -1,5 +1,5 @@
 ---
-title: Girhub 总是输入密码解决方法
+title: Github 总是输入密码解决方法
 date: 2023-05-27 18:00:12
 tags:
 ---
